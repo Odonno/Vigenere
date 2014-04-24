@@ -1,0 +1,277 @@
+﻿<controls:MetroWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dataGrid2DLibrary="clr-namespace:DataGrid2DLibrary;assembly=DataGrid2DLibrary"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:converters="clr-namespace:Vigenere.WPF.Converters"
+        x:Class="Vigenere.WPF.Views.MainWindow"
+        Title="Chiffrement de Vigenère" Height="800" Width="1200"
+        DataContext="{Binding Main, Source={StaticResource Locator}}">
+    
+    <controls:MetroWindow.Resources>
+        <converters:MethodeResolutionToStringConverter x:Key="MethodeResolutionToStringConverter" />
+        <converters:TextInputMessageConverter x:Key="TextInputMessageConverter" />
+        <converters:TextOutputMessageConverter x:Key="TextOutputMessageConverter" />
+    </controls:MetroWindow.Resources>
+    
+    
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="10*" />
+		</Grid.RowDefinitions>
+        
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="3*" />
+		</Grid.ColumnDefinitions>
+        
+        <!-- Sélection de la méthode de résolution avec un ComboBox -->
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Méthode de résolution :" />
+        <ComboBox Grid.Row="0" Grid.Column="1" Margin="0 5" SelectedItem="{Binding Path=MethodeResolution, Mode=TwoWay}" ItemsSource="{Binding Path=MethodesResolution, Mode=OneWay}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Converter={StaticResource MethodeResolutionToStringConverter}}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        
+		<!-- Affichage du texte en clair -->
+        <TextBlock Grid.Row="1" Grid.Column="0">
+            <Run Text="{Binding Path=MethodeResolution, Converter={StaticResource TextInputMessageConverter}}" /> :
+        </TextBlock>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Resolver.Texte, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" >
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="TextChanged">
+					<i:InvokeCommandAction Command="{Binding ResolveCommand}"/>
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+		</TextBox>
+
+		<!-- Affichage de la clé -->
+		<TextBlock Grid.Row="2" Grid.Column="0" Text="Clé :" />
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Resolver.Cle, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap">
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="TextChanged">
+					<i:InvokeCommandAction Command="{Binding ResolveCommand}"/>
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+		</TextBox>
+
+		<!-- Affichage du texte encodé -->
+        <TextBlock Grid.Row="3" Grid.Column="0">
+            <Run Text="{Binding Path=MethodeResolution, Converter={StaticResource TextOutputMessageConverter}}" /> :
+        </TextBlock>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Resolver.Resultat, Mode=OneWay}" TextWrapping="Wrap" IsReadOnly="True" />
+
+		<!-- Affichage de la table de Vigenère -->
+        <StackPanel Grid.Row="4" Grid.Column="0">
+            <TextBlock Text="Table de Vigenère :" />
+            <Button Content="Générer une Table aléatoire" Command="{Binding Path=GenerateRandomVigenereTableCommand}" />
+            <Button Content="Restaurer la table par défaut" Command="{Binding Path=RestoreDefaultVigenereTableCommand}" />
+        </StackPanel>
+		
+        <Grid Grid.Row="4" Grid.Column="1" DataContext="{Binding Resolver.Table}" VerticalAlignment="Top" HorizontalAlignment="Left">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+            
+			<!-- Ligne de la table -->
+			<Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="26" DataContext="{Binding Ligne}" 
+				Width="520" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="4 0 0 0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+
+				<TextBlock Grid.Column="0" Text="{Binding [0]}" />
+				<TextBlock Grid.Column="1" Text="{Binding [1]}" />
+				<TextBlock Grid.Column="2" Text="{Binding [2]}" />
+				<TextBlock Grid.Column="3" Text="{Binding [3]}" />
+				<TextBlock Grid.Column="4" Text="{Binding [4]}" />
+				<TextBlock Grid.Column="5" Text="{Binding [5]}" />
+				<TextBlock Grid.Column="6" Text="{Binding [6]}" />
+				<TextBlock Grid.Column="7" Text="{Binding [7]}" />
+				<TextBlock Grid.Column="8" Text="{Binding [8]}" />
+				<TextBlock Grid.Column="9" Text="{Binding [9]}" />
+				<TextBlock Grid.Column="10" Text="{Binding [10]}" />
+				<TextBlock Grid.Column="11" Text="{Binding [11]}" />
+				<TextBlock Grid.Column="12" Text="{Binding [12]}" />
+				<TextBlock Grid.Column="13" Text="{Binding [13]}" />
+				<TextBlock Grid.Column="14" Text="{Binding [14]}" />
+				<TextBlock Grid.Column="15" Text="{Binding [15]}" />
+				<TextBlock Grid.Column="16" Text="{Binding [16]}" />
+				<TextBlock Grid.Column="17" Text="{Binding [17]}" />
+				<TextBlock Grid.Column="18" Text="{Binding [18]}" />
+				<TextBlock Grid.Column="19" Text="{Binding [19]}" />
+				<TextBlock Grid.Column="20" Text="{Binding [20]}" />
+				<TextBlock Grid.Column="21" Text="{Binding [21]}" />
+				<TextBlock Grid.Column="22" Text="{Binding [22]}" />
+				<TextBlock Grid.Column="23" Text="{Binding [23]}" />
+				<TextBlock Grid.Column="24" Text="{Binding [24]}" />
+				<TextBlock Grid.Column="25" Text="{Binding [25]}" />
+			</Grid>
+            
+			<!-- Colonne de la table -->
+			<Grid Grid.Row="1" Grid.Column="0" Grid.RowSpan="26" DataContext="{Binding Colonne}"
+				Height="520" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 2 0 0">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+
+				<TextBlock Grid.Row="0" Text="{Binding [0]}" />
+				<TextBlock Grid.Row="1" Text="{Binding [1]}" />
+				<TextBlock Grid.Row="2" Text="{Binding [2]}" />
+				<TextBlock Grid.Row="3" Text="{Binding [3]}" />
+				<TextBlock Grid.Row="4" Text="{Binding [4]}" />
+				<TextBlock Grid.Row="5" Text="{Binding [5]}" />
+				<TextBlock Grid.Row="6" Text="{Binding [6]}" />
+				<TextBlock Grid.Row="7" Text="{Binding [7]}" />
+				<TextBlock Grid.Row="8" Text="{Binding [8]}" />
+				<TextBlock Grid.Row="9" Text="{Binding [9]}" />
+				<TextBlock Grid.Row="10" Text="{Binding [10]}" />
+				<TextBlock Grid.Row="11" Text="{Binding [11]}" />
+				<TextBlock Grid.Row="12" Text="{Binding [12]}" />
+				<TextBlock Grid.Row="13" Text="{Binding [13]}" />
+				<TextBlock Grid.Row="14" Text="{Binding [14]}" />
+				<TextBlock Grid.Row="15" Text="{Binding [15]}" />
+				<TextBlock Grid.Row="16" Text="{Binding [16]}" />
+				<TextBlock Grid.Row="17" Text="{Binding [17]}" />
+				<TextBlock Grid.Row="18" Text="{Binding [18]}" />
+				<TextBlock Grid.Row="19" Text="{Binding [19]}" />
+				<TextBlock Grid.Row="20" Text="{Binding [20]}" />
+				<TextBlock Grid.Row="21" Text="{Binding [21]}" />
+				<TextBlock Grid.Row="22" Text="{Binding [22]}" />
+				<TextBlock Grid.Row="23" Text="{Binding [23]}" />
+				<TextBlock Grid.Row="24" Text="{Binding [24]}" />
+				<TextBlock Grid.Row="25" Text="{Binding [25]}" />
+			</Grid>
+
+			<!-- Valeurs de la table -->
+			<dataGrid2DLibrary:DataGrid2D Grid.Row="1" Grid.Column="1" Grid.RowSpan="26" Grid.ColumnSpan="26"
+				Width="520" Height="522"
+				VerticalAlignment="Top" HorizontalAlignment="Left"
+				HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled"
+				ItemsSource2D="{Binding Valeurs}" 
+				CanUserDeleteRows="False" CanUserResizeRows="False" 
+				CanUserResizeColumns="False" CanUserReorderColumns="False" CanUserSortColumns="False" 
+				RowHeight="20" MaxColumnWidth="20" MinColumnWidth="20"
+				AlternatingRowBackground="#F7F7F7" RowBackground="#41B1E1" HeadersVisibility="None">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="RowEditEnding">
+                        <i:InvokeCommandAction Command="{Binding Source={StaticResource Locator}, Path=Main.ResolveCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </dataGrid2DLibrary:DataGrid2D>
+		</Grid>
+	</Grid>
+</controls:MetroWindow>

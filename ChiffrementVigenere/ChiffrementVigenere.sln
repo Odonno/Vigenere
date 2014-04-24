@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vigenere.Model", "Vigenere.Model\Vigenere.Model.csproj", "{7A82A5A9-F739-4CCD-B595-C8EF3C058C9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vigenere.ViewModel", "Vigenere.ViewModel\Vigenere.ViewModel.csproj", "{CB6A2151-091B-4958-B3E5-02BC47665CFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vigenere.WPF", "Vigenere.WPF\Vigenere.WPF.csproj", "{0CB334C9-7EBE-4CF9-BBCE-E7058A965C8C}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dbottiau.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Vigenere.Model\\Vigenere.Model.csproj
+		SccProjectName1 = Vigenere.Model
+		SccLocalPath1 = Vigenere.Model
+		SccProjectUniqueName2 = Vigenere.ViewModel\\Vigenere.ViewModel.csproj
+		SccProjectName2 = Vigenere.ViewModel
+		SccLocalPath2 = Vigenere.ViewModel
+		SccProjectUniqueName3 = Vigenere.WPF\\Vigenere.WPF.csproj
+		SccProjectName3 = Vigenere.WPF
+		SccLocalPath3 = Vigenere.WPF
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A82A5A9-F739-4CCD-B595-C8EF3C058C9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A82A5A9-F739-4CCD-B595-C8EF3C058C9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A82A5A9-F739-4CCD-B595-C8EF3C058C9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A82A5A9-F739-4CCD-B595-C8EF3C058C9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB6A2151-091B-4958-B3E5-02BC47665CFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB6A2151-091B-4958-B3E5-02BC47665CFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB6A2151-091B-4958-B3E5-02BC47665CFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB6A2151-091B-4958-B3E5-02BC47665CFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CB334C9-7EBE-4CF9-BBCE-E7058A965C8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CB334C9-7EBE-4CF9-BBCE-E7058A965C8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CB334C9-7EBE-4CF9-BBCE-E7058A965C8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CB334C9-7EBE-4CF9-BBCE-E7058A965C8C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
